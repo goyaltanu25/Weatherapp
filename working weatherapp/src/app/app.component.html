@@ -1,0 +1,28 @@
+
+<header>
+  <img src="http://www.animatedimages.org/data/media/148/animated-weather-image-0009.gif" border="0" alt="animated-weather-image-0009" />
+  <h1>WEATHER APPLICATION</h1>
+</header>
+
+<section class="weather-list">
+  <label for="cityname">CityName</label>
+  <input name="cityname" [(ngModel)]="cname">
+  <button mat-raised-button color="primary" (click)="onSubmit()">Search Weather</button>
+  <button mat-raised-button color="accent" (click)="onAdd()">Add City</button>
+  <div class="weather-element">
+      <div class="col-1" *ngFor="let df of datas?.data.request">
+         <h3>{{df.query}}</h3>
+       </div> 
+       <div class="col-1" *ngFor="let ab of datas?.data.current_condition"> 
+       <p>{{ab.observation_time}}</p> 
+      </div>
+      <div class="col-2" *ngFor="let abc of datas?.data.current_condition">
+        <span class="info">{{abc.weatherDesc[0].value}}</span>
+        <span class="temperature">  {{abc.temp_C}} °C </span>
+      </div>
+    </div> 
+  </section>
+
+
+
+
